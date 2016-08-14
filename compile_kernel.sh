@@ -12,15 +12,16 @@
 ####    arm-eabi-4.8  msm8916
 ####
 
+JERRICA_POSTFIX=$(date +"%Y%m%d")
 
 ## Copy this script inside the kernel directory 
 KERNEL_DIR=$PWD
 KERNEL_DEFCONFIG=wt88047_kernel_defconfig
-KERNEL_TOOLCHAIN=/home/premaca/KERNEL_COMPILE/arm-eabi-4.8/bin/arm-eabi-
+KERNEL_TOOLCHAIN=/media/premaca/working/KERNEL_COMPILE/arm-eabi-4.8/bin/arm-eabi-
 DBTTOOLCM_BIN=/bin/
 MAKE_JOBS=10
 ANY_KERNEL2_DIR=/home/premaca/git-local/AnyKernel2/
-FINAL_KERNEL_ZIP=Jerrica-MM-v1.5.zip
+FINAL_KERNEL_ZIP=Jerrica-GZR-$JERRICA_POSTFIX.zip
 
 export ARCH=arm
 export SUBARCH=arm
@@ -76,6 +77,7 @@ rm -f $ANY_KERNEL2_DIR/dtb
 rm -f $ANY_KERNEL2_DIR/dt.img
 rm -f $ANY_KERNEL2_DIR/zImage
 rm -f $ANY_KERNEL2_DIR/$FINAL_KERNEL_ZIP
+rm -f $ANY_KERNEL2_DIR/*.zip
 
 cp $KERNEL_DIR/arch/arm/boot/zImage $KERNEL_DIR/arch/arm/boot/dt.img $ANY_KERNEL2_DIR/
 
